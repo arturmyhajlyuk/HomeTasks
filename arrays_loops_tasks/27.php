@@ -24,7 +24,7 @@ echo $table; //
 //
 /**
  * Created by PhpStorm.
- * User: Артур
+ * User: Артурems
  * Date: 20.01.2017
  * Time: 0:57
  */
