@@ -1,5 +1,5 @@
 <?php
-$name = 'artur';
+$name = 'artur1';
 /**
  * Created by PhpStorm.
  * User: Артур

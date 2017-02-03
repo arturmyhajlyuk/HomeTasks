@@ -1,7 +1,7 @@
 <?php
 echo "1 строка\n";
 print "2 строка\n";
-print_r ("3 строка");
+print_r ("9 строка");
 /**
  * Created by PhpStorm.
  * User: Артур

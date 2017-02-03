@@ -1,21 +1,30 @@
 
 <pre>
-
     <?php
+    mb_internal_encoding('UTF-8');
 
-    function getUpLetter($str, $encoding='UTF-8')
+    function getUpLetter(string $str) : string
     {
-        $str = preg_split('/(?<=\.)\s/ui', $str, -1, PREG_SPLIT_NO_EMPTY);
+        $separator = '.';
+        $result = '';
 
-        //foreach ($arr as $key => $value)
+        foreach (explode($separator, $str) as $key => $part) //разбиваем текст на строки и заносим в массив
+        {
+            $part = trim($part); //обрезаем строку в массиве от лишних пробелов
+            $result .= $part ? mb_UcFirst($part).$separator.' ' : ''; //формирование строки с помощью mb_UcFirst
+        }
 
-           // $value = mb_strtoupper(mb_substr($value, 0, 1, $encoding), $encoding) . mb_substr($value, 1, mb_strlen($value), $encoding);
-
-        return $str;
+        return $result;
     }
 
-    $str='мать. отец dog cat. ok';
-    print_r(getUpLetter($str));
+    function mb_UcFirst($str) //замена маленькой буквы на заглавную, в каждом слове в начале предложения
+    {
+    return mb_strtoupper(mb_substr($str, 0, 1)) . mb_substr($str, 1);
+    }
 
- ?>
+    $str = 'а васька слушает да ест. а воз и ныне там. а вы друзья как ни садитесь, все в музыканты не годитесь.
+     а король-то — голый. а ларчик просто открывался.а там хоть трава не расти.';
+
+    print_r(getUpLetter($str));
+    ?>
 </pre>
